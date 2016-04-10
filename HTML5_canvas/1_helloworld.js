@@ -7,6 +7,7 @@ Debugger.log = function (mes) {
   }
 };
 
+
 function canvasSupport() {
   return !!document.createElement('canvas').getContext;
 }
