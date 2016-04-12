@@ -28,7 +28,7 @@ function init() {
   //camera
   var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-  camera = setPosition(camera, -50, 20, 50);
+  camera = setPosition(camera, -50, 25, 50);
   camera.lookAt(scene.position);
 
   scene.add(camera);
@@ -41,7 +41,7 @@ function init() {
   renderer.shadowMapEnabled = true;
 
   // plane ground
-  var planeGeometry = new THREE.PlaneGeometry(80, 60, 1, 1);
+  var planeGeometry = new THREE.PlaneGeometry(70, 50, 1, 1);
   var planeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff});
   var plane = new THREE.Mesh(planeGeometry, planeMaterial);
   plane.rotation.x = -0.5 * Math.PI;
@@ -62,7 +62,7 @@ function init() {
 
   // control
   var controls = new function () {
-    this.rotationSpeed = 0.2;
+    this.rotationSpeed = 0.04;
     this.numberOfObjects = scene.children.length;
 
     // add cube function
@@ -96,10 +96,10 @@ function init() {
       console.log(scene.children);
     };
   };
-  for (var i = 0; i < 30; i++) {
+  for (var i = 0; i < 50; i++) {
     setTimeout(function () {
       controls.addCube();
-    }, Math.random() * 10000);
+    }, i * 150);
   }
 
   // gui controls
