@@ -21,6 +21,9 @@ function init() {
 
   // scene
   var scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0xffffff, 0.015, 100);
+  scene.fog = new THREE.FogExp2(0xffffff, 0.01);
+  scene.overrideMaterial = new THREE.MeshLambertMaterial({color:'#333'});
 
   //camera
   var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -93,10 +96,10 @@ function init() {
       console.log(scene.children);
     };
   };
-  for(var i = 0; i < 30 ; i++){
-    setTimeout(function(){
+  for (var i = 0; i < 30; i++) {
+    setTimeout(function () {
       controls.addCube();
-    },Math.random() * 10000);
+    }, Math.random() * 10000);
   }
 
   // gui controls
